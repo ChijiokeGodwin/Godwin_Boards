@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Delete post
+{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+<li class="breadcrumb-item"><a href="{% url 'board_topics' post.topic.board.pk %}">{{ post.topic.board.name }}</a></li>
+<li class="breadcrumb-item"><a href="{% url 'topic_posts' post.topic.board.pk post.topic.pk %}">{{ post.topic.subject }}</a></li>
+<li class="breadcrumb-item active">Delete post</li>
+{% endblock %}
+
+{% block content %}
+<h5>Are you sure you want to delete this post?</h5>
+<form method="post" > 
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+     <div class="card">
+      <div class="card-body text-muted">
+       
+        {% csrf_token %}
+        {{ object.message }}
+       
+      </div>
+     </div>
+    </div>
+</div>
+<input type="submit" value="Confirm" class="btn btn-danger mt-4">
+<a href="{% url 'topic_posts' post.topic.board.pk post.topic.pk %}" class="btn btn-outline-secondary mt-4" role="button">Cancel</a>
+</form>
+{% endblock %}
+

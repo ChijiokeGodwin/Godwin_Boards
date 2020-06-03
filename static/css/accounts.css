@@ -1,0 +1,11 @@
+﻿body {
+ background-image: url(../img/background.png); }
+
+.logo {
+ font-family: 'Cedarville Cursive', cursive; }
+
+.logo a {
+ color: rgba(0, 180, 255, .9); }
+
+.logo a:hover, .logo a:active {
+ text-decoration: none; }
